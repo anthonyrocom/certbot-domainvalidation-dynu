@@ -4,6 +4,6 @@ services:
     certbot:
         build: certbot
         volumes:
-            - /etc/letsencrypt/:/etc/letsencrypt/
+            - /etc/docker/letsencrypt/:/etc/letsencrypt/
             - ./scripts:/scripts/
         command: certonly --manual-public-ip-logging-ok --non-interactive --agree-tos --email <PUT_YOUR_EMAIL_HERE> --manual --preferred-challenges=dns --manual-auth-hook /scripts/script-pre.sh --manual-cleanup-hook /scripts/script-post.sh -d YOURDOMAIN.TLD -d *.YOURDOMAIN.TLD
